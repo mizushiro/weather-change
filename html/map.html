@@ -1,0 +1,192 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>기후변화상황지도</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+	<link rel="stylesheet" href="../resources/js/lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="../resources/css/ui.base.css">
+	
+	<script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
+	<script src="../resources/js/lib/jquery-ui.min.js"></script>
+	<script src="../resources/js/ui.plugins.js"></script>
+	<script src="../resources/js/ui.common.js"></script>
+</head>
+
+<body>
+	<div class="base-wrap">
+		<div class="lnb-nav">
+			<h1 class="h1-logo">
+				<img src="../resources/img/logo_mark.png" alt="">
+				<span class="h1-logo-text">기상청</span>
+			</h1>
+			<div class="nav-group">
+				<button type="button" class="btn-small">전지구</button>
+				<button type="button" class="btn-small active">남한상세</button>
+				<button type="button" class="btn-small">재분석장<br>(ECWMF)</button>
+			</div>
+			<button type="button" class="btn-small point2">데이터<br>다운로드</button>
+		</div>
+		<div class="map-chart-box">
+			<div class="map-area">
+				<div class="left-box">
+					<div class="left-search-box">
+						<input type="text" class="inp-sh" placeholder="검색어 입력">
+						<button type="button" class="btn-sh-small">
+							<span class="material-icons-outlined">
+								search
+							</span>
+						</button>
+					</div>
+				</div>
+				<div class="right-side">
+					<button type="button" class="btn-icon">
+						<span class="material-icons-outlined">
+							add
+						</span>
+					</button>
+					<button type="button" class="btn-icon">
+						<span class="material-icons-outlined">
+							remove
+						</span>
+					</button>
+					<button type="button" class="btn-icon">
+						<span class="material-icons-outlined">
+							my_location
+						</span>
+					</button>
+					<div class="btn-layer-hover">
+						<button type="button" class="btn-icon">
+							<span class="material-icons-outlined">
+								map
+							</span>
+						</button>
+						<div class="right-side-layer">
+							<div class="right-side-layer-box">
+								<!-- 선택된 경우 [dark] class add -->
+								<button type="button" class="btn-small dark">야간지도</button>
+								<button type="button" class="btn-small">일반지도</button>
+								<button type="button" class="btn-small">영상지도</button>
+								<button type="button" class="btn-small">하이브리드</button>
+								<button type="button" class="btn-small">백지도</button>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn-icon btn-layer-open">
+						<span class="material-icons-outlined">
+							assignment
+						</span>
+					</button>
+					<button type="button" class="btn-icon" data-layer="data-layer1">
+						<span class="material-icons-outlined">
+							settings
+						</span>
+					</button>
+				</div>
+
+
+				<!-- 범례 -->
+				<div class="bar-box">범례</div>
+			</div>
+			<div class="chart-area-a">
+				<div class="chart-checkbox">
+					<input type="checkbox" id="treeDep11">
+					<label for="treeDep11" class="right-check-label">
+						<span class="right-check-data2">관측자료</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="data-layer1" class="layer_section">
+		<div class="layer_section-container">
+			<div class="layer-title-box">
+				<h1 class="layer-title">자료 설정</h1>
+			</div>
+			<div class="layer-content">
+				<h2 class="layer-sub-title">시나리오</h2>
+				<div class="radio-group-box">
+					<div class="radio-item-type-a">
+						<input type="radio" id="a1-1" name="a1" class="inp-radio">
+						<label for="a1-1" class="radio-item-type-a-label">SSP126</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a1-2" name="a1" class="inp-radio">
+						<label for="a1-2" class="radio-item-type-a-label">SSP245</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a1-3" name="a1" class="inp-radio">
+						<label for="a1-3" class="radio-item-type-a-label">SSP370</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a1-4" name="a1" class="inp-radio">
+						<label for="a1-4" class="radio-item-type-a-label">SSP585</label>
+					</div>
+				</div>
+				<h2 class="layer-sub-title">자료종류</h2>
+				<div class="radio-group-box">
+					<div class="radio-item-type-a">
+						<input type="radio" id="a2-1" name="a2" class="inp-radio">
+						<label for="a2-1" class="radio-item-type-a-label">기후요소</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a2-2" name="a2" class="inp-radio">
+						<label for="a2-2" class="radio-item-type-a-label">극한기후지수</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a2-3" name="a2" class="inp-radio">
+						<label for="a2-3" class="radio-item-type-a-label">영향정보</label>
+					</div>
+				</div>
+				<h2 class="layer-sub-title">기후요소</h2>
+				<div class="radio-group-box">
+					<div class="radio-item-type-a">
+						<input type="radio" id="a3-1" name="a3" class="inp-radio">
+						<label for="a3-1" class="radio-item-type-a-label">평균기온</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a3-2" name="a3" class="inp-radio">
+						<label for="a3-2" class="radio-item-type-a-label">최저기온</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a3-3" name="a3" class="inp-radio">
+						<label for="a3-3" class="radio-item-type-a-label">최고기온</label>
+					</div>
+					<div class="radio-item-type-a">
+						<input type="radio" id="a3-4" name="a3" class="inp-radio">
+						<label for="a3-4" class="radio-item-type-a-label">강수량</label>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn_layer-close"><span class="for-a11y">레이어팝업 닫기</span></button>
+		</div>
+	</div>
+		
+	<script>
+		newhome.callLayer();
+		;(function($, win, doc, undefined) {
+			$(doc).ready(function(){
+				$('.btn-layer-open').on('click', function (e) {
+					$(this).toggleClass('selected');
+					$('.bar-box').toggleClass('active');
+				});
+				$('.btn-layer-hover').on('mouseover', function (e) {
+					$('.btn-layer-hover .btn-icon').addClass('selected');
+				});
+				$('.btn-layer-hover').on('mouseout', function (e) {
+					$('.btn-layer-hover .btn-icon').removeClass('selected');
+				});
+			});
+		})(jQuery, window, document);
+	</script>
+</body>
+</html>

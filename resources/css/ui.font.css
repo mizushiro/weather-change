@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-thin.eot');/* IE 호환성 보기 */
+	src: url('/resources/font/notokr-thin.eot?#iefix') format('embedded-opentype'),/* IE 6 ~ 8 */
+		url('/resources/font/notokr-thin.woff2') format('woff2'),/* WOFF2 지원 브라우저 */
+		url('/resources/font/notokr-thin.woff') format('woff'),/* 모던 브라우저 */
+		url('/resources/font/notokr-thin.svg#notokr-thin') format('svg');/* 구 모바일 브라우저 */
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-light.eot');
+	src: url('/resources/font/notokr-light.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-light.woff2') format('woff2'),
+		url('/resources/font/notokr-light.woff') format('woff'),
+		url('/resources/font/notokr-light.svg#notokr-light') format('svg');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-demilight.eot');
+	src: url('/resources/font/notokr-demilight.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-demilight.woff2') format('woff2'),
+		url('/resources/font/notokr-demilight.woff') format('woff'),
+		url('/resources/font/notokr-demilight.svg#notokr-demilight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-regular.eot');
+	src: url('/resources/font/notokr-regular.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-regular.woff2') format('woff2'),
+		url('/resources/font/notokr-regular.woff') format('woff'),
+		url('/resources/font/notokr-regular.svg#notokr-regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-medium.eot');
+	src: url('/resources/font/notokr-medium.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-medium.woff2') format('woff2'),
+		url('/resources/font/notokr-medium.woff') format('woff'),
+		url('/resources/font/notokr-medium.svg#notokr-medium') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-bold.eot');
+	src: url('/resources/font/notokr-bold.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-bold.woff2') format('woff2'),
+		url('/resources/font/notokr-bold.woff') format('woff'),
+		url('/resources/font/notokr-bold.svg#notokr-bold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face{
+	font-family:'notokr';
+	src: url('/resources/font/notokr-black.eot');
+	src: url('/resources/font/notokr-black.eot?#iefix') format('embedded-opentype'),
+		url('/resources/font/notokr-black.woff2') format('woff2'),
+		url('/resources/font/notokr-black.woff') format('woff'),
+		url('/resources/font/notokr-black.svg#notokr-black') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
