@@ -1,0 +1,165 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>기후변화상황지도</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="stylesheet" href="../resources/js/lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="../resources/css/ui.base.css">
+	
+	<script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
+	<script src="../resources/js/lib/jquery-ui.min.js"></script>
+	<script src="../resources/js/ui.plugins.js"></script>
+	<script src="../resources/js/ui.common.js"></script>
+</head>
+
+<body>
+	<div class="base-wrap">
+		<div class="lnb-nav">
+			<h1 class="h1-logo">
+				<img src="../resources/img/logo_mark.png" alt="">
+				<span class="h1-logo-text">기상청</span>
+			</h1>
+			<div class="nav-group">
+				<button type="button" class="btn-small">
+					<!--<span class="material-icons-outlined">
+						public
+					</span>-->
+					전지구
+				</button>
+				<button type="button" class="btn-small">남한상세</button>
+				<button type="button" class="btn-small active">
+					재분석장<br>(ECWMF)
+				</button>
+			</div>
+			<button type="button" class="btn-small point2">데이터<br>다운로드</button>
+		</div>
+		<div class="map-chart-box">
+			<div class="map-area">
+				<div class="left-box">
+					<div class="left-search-box">
+						<select name="" id="">
+							<option value="">2005년 12월</option>
+						</select>
+					</div>
+					<div class="mini-map">
+
+					</div>
+				</div>
+				<div class="right-side">
+					<div class="right-side-group">
+						<span class="material-icons-outlined" style="transform: rotate(90deg)">
+							explore
+						</span>
+						<!-- 선택시 [point] class add -->
+						<button type="button" class="btn-small point">
+							등압선
+						</button>
+						<button type="button" class="btn-small">
+							바람
+						</button>
+						<select name="" id="" class="select-hpa">
+							<option value="">10hPa</option>
+							<option value="">50hPa</option>
+							<option value="">200hPa</option>
+							<option value="">500hPa</option>
+							<option value="">1000hPa</option>
+							<option value="">영역 선택</option>
+						</select>
+					</div>
+				</div>
+				<div class="img-change-box">
+					<button type="button" class="btn-img-change"></button>
+				</div>
+
+
+				<div class="map-layer-area">
+					<button type="button" class="btn-layer-area-close">
+						<span class="material-icons-outlined">
+							close
+						</span>
+					</button>
+					<div class="checkbox-group-a">
+						<div class="checkbox-item-type-a">
+							<input type="checkbox" id="a1-1" class="inp-checkbox">
+							<label for="a1-1" class="checkbox-item-type-a-label">10hPa</label>
+						</div>
+						<div class="checkbox-item-type-a">
+							<input type="checkbox" id="a1-2" class="inp-checkbox">
+							<label for="a1-2" class="checkbox-item-type-a-label">50hPa</label>
+						</div>
+						<div class="checkbox-item-type-a">
+							<input type="checkbox" id="a1-3" class="inp-checkbox">
+							<label for="a1-3" class="checkbox-item-type-a-label">200hPa</label>
+						</div>
+						<div class="checkbox-item-type-a">
+							<input type="checkbox" id="a1-4" class="inp-checkbox">
+							<label for="a1-4" class="checkbox-item-type-a-label">500hPa</label>
+						</div>
+						<div class="checkbox-item-type-a">
+							<input type="checkbox" id="a1-5" class="inp-checkbox">
+							<label for="a1-5" class="checkbox-item-type-a-label">1000hPa</label>
+						</div>
+					</div>
+
+					<div class="map-slider-box">
+						<span class="material-symbols-outlined">
+							camera_video
+						</span>
+						<div id="slider-vertical" style="height:200px;"></div>
+						<div class="slider-vertical-data-a">
+							<p class="slider-vertical-data-text">10hPa</p>
+							<p class="slider-vertical-data-text">50hPa</p>
+							<p class="slider-vertical-data-text">200hPa</p>
+							<p class="slider-vertical-data-text">500hPa</p>
+							<p class="slider-vertical-data-text">1000hPa</p>
+						</div>
+						<div class="slider-vertical-data-b">
+							<p class="slider-vertical-data-text">30000m</p>
+							<p class="slider-vertical-data-text">20000m</p>
+							<p class="slider-vertical-data-text">12000m</p>
+							<p class="slider-vertical-data-text">5000m</p>
+							<p class="slider-vertical-data-text">0m</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+	<script>
+		newhome.callLayer();
+		;(function($, win, doc, undefined) {
+			$(doc).ready(function(){
+				$('.mini-map').on('click', function (e) {
+					$('.base-wrap').addClass('layer-open');
+				});
+				$('.btn-layer-area-close').on('click', function (e) {
+					$('.base-wrap').removeClass('layer-open');
+				});
+
+				$( "#slider-vertical" ).slider({
+					orientation: "vertical",
+					range: "min",
+					min: 0,
+					max: 50,
+					value: 30,
+					slide: function( event, ui ) {
+						$( "#amount" ).val( ui.value );
+					}
+				});
+			});
+		})(jQuery, window, document);
+	</script>
+</body>
+</html>
