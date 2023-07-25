@@ -94,7 +94,7 @@ input[type="radio"]:disabled + label:before{background-position:-40px -20px}
 input[type="radio"]:checked:disabled + label:before{background-position:-60px -20px}
 */
 
-.base-wrap {display:flex;min-height:100%}
+.base-wrap {display:flex;min-height:100%;overflow:hidden}
 .lnb-nav {width:80px;flex-shrink:0;background-color:#0e3058;display:flex;flex-direction:column}
 .lnb-nav .btn-small {padding:8px;height:48px;width:100%;border-radius:0}
 .lnb-nav .btn-small.point2 {margin-top:auto;font-weight:500}
